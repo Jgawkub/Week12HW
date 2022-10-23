@@ -55,13 +55,10 @@ class ListService {
 
 
 
-
-
-
 }
 // and below is my Manager that handles all of the function of getting, updating, adding and deleting things. 
 class Manager {
-  static lists;
+  static lists=[];
 
   static getAllLists() {
     ListService.getAllLists().then((lists) => this.render(lists));
@@ -75,6 +72,7 @@ class Manager {
       })
       .then((lists) => this.render(lists));
   }
+  
   static createList(listName, listDate) {
     console.log("this is", listName);
     ListService.createList(new List(listName, listDate))
@@ -101,7 +99,7 @@ class Manager {
   }
 
   static deleteItem(listId, itemName) {
-    //  rather than using itemID here I am using itemName. As far as I cna work out, mock api assigns my large list an id but not the items inside, so to find out what to delete I simply check if the passed in item name is the same as item.itemName. It seems to work find even if I have two things named the same. 
+    //  rather than using itemID here I am using itemName. As far as I cna work out, mock api assigns my large list an id but not the items inside, so to find out what to delete I simply check if the passed in item name is the same as item.itemName. It seems to work find even if I have two things named the same. As I imagine it's also reading the position in the array. 
     console.log("deleting");
     console.log(itemName);
     for (let list of this.lists) {
@@ -129,7 +127,7 @@ class Manager {
       $("#data").prepend(
         `<div id="${list.id}" class="card">
                 <div class = "card header"> 
-                    <h3>${list.listName}</h3>  <h2 class='float right'> ${list.listDate}</h2>
+                    <h3>${list.listName}</h3>  <h4 class='float-right'> ${list.listDate}</h4>
                     <button class="btn btn-danger" onclick="Manager.deleteList('${list.id}')">Delete List</button> 
 
                         </div>
@@ -165,9 +163,11 @@ class Manager {
 }
 
 $("#submit").on("click", () => {//this is the main submit button. 
-  console.log($("#list-name").val() );
+  console.log($("#list-name").val());
   Manager.createList($("#list-name").val(),$("#list-date").val() );
   $("list-name").val("");
 });
 
-Manager.getAllLists(); // calling the function to show all the lists.
+
+
+Manager.getAllLists() // calling the function to show all the lists.
