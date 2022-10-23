@@ -4,13 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House App </title>
+    <title>LISTICLE</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="week12.css">
   </head>
+
   <body class="container">
-    <div id="new-house" class="bg-light">
+
+
+    <div class="card">
+      <img id='background' 
+      
+      
+      
+      
+      
+      class="card-img" src="To_Do_List.png" alt="note pad">
+      <div class="card-img-overlay">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-8">
+        <h1 class="card-title text-dark">Listify</h1>
+        <p class="card-text fw-bold fs-4">The convenient way of keeping track of your life. </p>
+      </div>
+      <div class="col-sm-3">
+    
+      </div>
+      </div>
+      </div>
+    </div>
+    <div id="new-list" class="bg-light">
     <h1 class="text-center">New Item</h1>
+      <div class='row'>
+        <div class='col-sm'>
     <input type="text" id="list-name" class="form-control">
+      </div>
+      <div class="col-sm">
+        <input type="date" placeholder="dd-mm-yyyy" id="list-date" class="form-control">
+      </div>
+  </div>
     <br>
     <button id="submit" class="btn btn-primary form-control">Create New List</button>
     <br>
